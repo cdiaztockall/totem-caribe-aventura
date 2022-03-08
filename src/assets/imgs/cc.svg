@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="63.14" height="42.198" viewBox="0 0 63.14 42.198">
+    <defs>
+        <clipPath id="bqkji9syoa">
+            <path data-name="Rectángulo 200" style="fill:#eb148d" d="M0 0h63.14v42.198H0z"/>
+        </clipPath>
+    </defs>
+    <g data-name="Grupo 268">
+        <g data-name="Grupo 267" style="clip-path:url(#bqkji9syoa)">
+            <path data-name="Trazado 251" d="M4.653.177 58.347 0a4.668 4.668 0 0 1 4.685 4.653l.107 32.685a4.666 4.666 0 0 1-4.652 4.683l-53.7.178a4.669 4.669 0 0 1-4.679-4.654L0 4.861A4.668 4.668 0 0 1 4.653.177m49.926 25.467-17.5-.018v1.318l17.5.018zm-.007 6.243V30.57l-34.991-.038v1.317zm-34.739-9.21.017-16.352L6.794 6.31l-.019 16.352z" style="fill:#eb148d"/>
+        </g>
+    </g>
+</svg>

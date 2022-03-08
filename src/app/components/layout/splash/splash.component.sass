@@ -1,0 +1,85 @@
+
+
+@mixin position($left, $top, $right, $bottom)
+    position: absolute
+    left: $left !important
+    top: $top !important
+    right: $right !important
+    bottom: $bottom !important
+
+.container-screen
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    height: 100%
+    width: 100%
+    background-image: linear-gradient(to bottom, #3dd0fe, #029ecf)
+    background-color: #029ecf
+    z-index: 1
+    position: relative
+    cursor: pointer
+    overflow: hidden
+    .logo-brand
+        width: 60%
+        z-index: 1
+    .text-info
+        color: white
+        font-family: PoppinsBold
+        font-size: 1.6rem
+        animation: blink 800ms ease infinite
+        -moz-animation: blink 800ms ease infinite
+        -webkit-animation: blink 800ms ease infinite
+
+    .figure-top-left
+        position: absolute
+        top: -32rem
+        left: -47rem
+        width: 69rem
+        z-index: 0
+    .figure-top-rigth
+        @include position($left: null, $top: 0rem, $right: 0rem, $bottom: null)
+        width: 13rem
+    .figure-bottom-right
+        @include position($left: null, $top: null, $right: 0rem, $bottom: -3rem)
+        width: 63rem
+    .figure-bottom-left
+        position: absolute
+        left: 5rem
+        bottom: -10rem
+        transform: rotate(188deg)
+        width: 17rem
+
+@keyframes blink
+    0%
+        transform: scale(1.05)
+    50%
+        transform: scale(1)
+    100%
+        transform: scale(1.05)
+
+@media screen and (max-width: 768px)
+    .logo-brand
+        width: 87% !important
+    .figure-top-left
+        @include position($left: -18rem, $top: -10rem, $right: 0rem, $bottom: 0rem)
+        width: 26rem !important
+    .figure-top-rigth
+        width: 8rem !important
+    .figure-bottom-right
+        width: 42rem !important
+    .figure-bottom-left
+        @include position($left: -3rem, $top: null, $right: null, $bottom: -5rem)
+        width: 12rem !important
+
+.container-loader
+    position: fixed
+    top: 0rem
+    left: 0rem
+    bottom: 0rem
+    right: 0rem
+    display: grid
+    place-content: center
+    .text-loader
+        font-size: 2.6rem
+        font-family: sans-serif

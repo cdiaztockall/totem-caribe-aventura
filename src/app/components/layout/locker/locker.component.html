@@ -1,0 +1,24 @@
+<section class="container-menu">
+
+    <div class="container-content">
+        <span class="title-menu">Para ingresar a los Lockers <br> autentícate</span>
+    
+        <div class="container-items-menu">
+    
+            <button
+                *ngFor="let item of itemsMenu"
+                class="container-item-menu"
+                (click)="goTo(item.route)"
+            >
+                <div class="container-image-item">
+                    <img [src]="item.image" alt="" class="image-item">
+                </div>
+                <span class="name-item" > {{ item.name }} </span>
+            </button>
+    
+        </div>
+    
+        <img src="/assets/imgs/logo-caribe.webp" alt="" class="logo-brand">
+    </div>
+    
+</section>

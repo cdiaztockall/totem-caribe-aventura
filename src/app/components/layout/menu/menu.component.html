@@ -1,0 +1,40 @@
+<section class="container-menu">
+
+    <div class="card-container">
+
+        <h2 class="title-card">
+            ¡Bienvenido!
+        </h2>
+        <h3 class="subtitle-card">
+            Toca para elegir el servicio a usar
+        </h3>
+
+        <div class="container-items">
+
+            <button
+                *ngFor="let itemMenu of itemsMenu"
+                class="container-item"
+                [ngStyle]="{'background': itemMenu.color}"
+                (click)="goTo(itemMenu.route)"
+            >
+
+                <div
+                    class="container-image"
+                    [ngStyle]="{'background': itemMenu.color}"
+                >
+                    <img [src]="itemMenu.image" alt="" class="image-item">
+                </div>
+
+                <span class="name-item">
+                    {{ itemMenu.name }}
+                </span>
+
+            </button>
+
+        </div>
+
+        <img src="/assets/imgs/logo-caribe.webp" alt="" class="logo-brand">
+
+    </div>
+    
+</section>

@@ -1,0 +1,17 @@
+<section [ngClass]="{'hidden': loader == true}" (click)="goToMenu()" class="container-screen">
+
+    <img id="figure-1" src="/assets/imgs/figure-top-left.svg" alt="" class="figure-top-left">
+    <img id="figure-2" src="/assets/imgs/figure-top-rigth.svg" alt="" class="figure-bottom-left">
+    <img id="figure-3" src="/assets/imgs/figure-top-rigth.svg" alt="" class="figure-top-rigth">
+    <img id="figure-4" src="/assets/imgs/figure-bottom-rigth.webp" alt="" class="figure-bottom-right">
+
+
+    <img id="logo-brand" src="/assets/imgs/logo-caribe.webp" alt="" class="logo-brand">
+
+    <h1 class="text-info">Toca para continuar</h1>
+
+</section>
+
+<div *ngIf="loader" class="container-loader">
+    <span class="text-loader">Cargando...</span>
+</div>

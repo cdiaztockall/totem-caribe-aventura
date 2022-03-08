@@ -1,0 +1,44 @@
+<section class="container-menu">
+
+    <div class="container-content">
+        <span class="title-menu">Ingresa tus datos</span>
+    
+        <div class="cotainer-form">
+            <div class="container-item-form">
+                <div class="container-icon-form">
+                    <img src="/assets/imgs/cc.svg" alt="" class="icon-form">
+                </div>
+                <div (click)="selectInput(1)" class="container-input-form">
+                    <input [disabled]="true" id="cc" [formControl]="cc" class="input-form" type="tel" name="" autocomplete="off" >
+                </div>
+            </div>
+            <div class="container-item-form">
+                <div class="container-icon-form">
+                    <img src="/assets/imgs/contrasena.svg" alt="" class="icon-form">
+                </div>
+                <div (click)="selectInput(2)" class="container-input-form">
+                    <input [disabled]="true" [contentEditable]="true" id="password" [formControl]="password" class="input-form" type="text" name="" autocomplete="off" >
+                </div>
+            </div>
+        </div>
+    
+        <button class="btn-primay touched" >Siguiente</button>
+
+        <div class="container-keyboard">
+            <div *ngFor="let btns of keyBoard" class="row-keyboard">
+                <button
+                    *ngFor="let btn of btns"
+                    class="btn-keyboard"
+                    (click)="writeKey(btn)"
+                    [ngClass]="{'width-auto': btn == 'BORRAR'}"
+                >
+                    {{ btn }}
+                </button>
+            </div>
+
+        </div>
+
+        <!-- <img src="/assets/imgs/logo-caribe.webp" alt="" class="logo-brand"> -->
+    </div>
+    
+</section>

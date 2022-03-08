@@ -1,0 +1,73 @@
+.container-menu
+    background: url('/assets/imgs/background-blur.webp')
+    background-position: center
+    background-size: cover
+    position: absolute
+    top: 0rem
+    left: 0rem
+    right: 0rem
+    bottom: auto
+    z-index: 0
+    height: 100%
+    user-select: none
+    .card-container
+        margin: 1rem
+        box-sizing: border-box
+        display: flex
+        flex-direction: column
+        flex: 1
+        background-color: #ffffff30
+        padding: 1rem
+        border-radius: 1rem
+        backdrop-filter: blur(26px)
+        background-color: #f1f0f540
+        gap: 1rem
+        .title-card
+            margin: 0rem
+            text-align: center
+            font-size: 1.2rem
+            font-family: 'PoppinsBold'
+        .subtitle-card
+            margin: 0rem
+            text-align: center
+            font-size: 1.1rem
+        .container-items
+            display: flex
+            flex-wrap: wrap
+            gap: 1.5rem
+            align-items: flex-start
+            justify-content: center
+            .container-item
+                display: flex
+                flex-direction: column
+                border: none
+                outline: none
+                border-radius: 1rem
+                gap: 1.5rem
+                padding: 0rem
+                padding-bottom: 2.5rem
+                cursor: pointer
+                &:hover
+                    .container-image
+                        transform: scale(1.05)
+                &:active
+                    .container-image
+                        transform: scale(1.05)
+                .container-image
+                    width: 10rem
+                    height: 10rem
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    box-shadow: 18px 18px 30px 0 rgb(0 0 0 / 16%)
+                    border-radius: 1rem
+                    .image-item
+                        width: 8rem
+                .name-item
+                    font-size: 1rem
+                    font-family: 'PoppinsBold'
+                    color: white
+                    align-self: center
+        .logo-brand
+            width: 6rem
+            align-self: center

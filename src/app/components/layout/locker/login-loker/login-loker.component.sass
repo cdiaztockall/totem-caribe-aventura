@@ -1,0 +1,102 @@
+.container-menu
+    background: url('/assets/imgs/background-blur.webp')
+    background-position: center
+    background-size: cover
+    position: absolute
+    top: 0rem
+    left: 0rem
+    right: 0rem
+    bottom: auto
+    z-index: 0
+    height: 100%
+    user-select: none
+    .container-content
+        display: flex
+        flex-direction: column
+        overflow-y: auto
+        align-items: center
+        height: 100%
+        justify-content: space-around
+        .title-menu
+            font-family: 'PoppinsBold'
+            text-align: center
+            font-size: 1.2rem
+        .btn-primay
+            padding: 0.5rem 1.5rem
+            border: none
+            outline: none
+            border-radius: 0.5rem
+            font-size: 1.2rem
+            background-color: #ee158f
+            color: white
+            font-family: 'PoppinsRegular'
+            box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%)
+            cursor: pointer
+        .cotainer-form
+            display: flex
+            flex-direction: column
+            gap: 1rem
+            .container-item-form
+                display: flex
+                align-items: center
+                gap: 1rem
+                .container-icon-form
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    width: 4rem
+                    height: 4rem
+                    background-color: white
+                    border-radius: 1rem
+                    padding: 0rem 0rem
+                    .icon-form
+                        width: 2.5rem
+                .container-input-form
+                    height: 4rem
+                    background-color: white
+                    border-radius: 1rem
+                    min-width: 14rem
+                    box-shadow: 18px 18px 30px 0 rgba(0, 0, 0, 0.16)
+                    .input-form
+                        width: 100%
+                        box-sizing: border-box
+                        height: 100%
+                        border-radius: 1rem
+                        border: none
+                        outline: none
+                        padding: 0rem 1rem
+                        text-align: center
+                        font-size: 1.5rem
+                        font-family: 'PoppinsBold'
+        .container-keyboard
+            background-color: white
+            padding: 1rem 2rem
+            border-radius: 1rem
+            box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%)
+            display: flex
+            flex-direction: column
+            gap: 0.5rem
+            .row-keyboard
+                display: flex
+                justify-content: center
+                gap: 1rem
+                .btn-keyboard
+                    width: 40px
+                    height: 43px
+                    border-radius: 14px
+                    box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%)
+                    background-color: #fff
+                    border: none
+                    font-family: 'PoppinsBold'
+                    outline: none
+                    text-align: center
+                    cursor: pointer
+                    color: #ee158f
+                    font-size: 1.1rem
+                    &.width-auto
+                        width: auto
+                    &:active
+                        background-color: #d2d2d2
+                        transform: scale(0.95)
+                        -moz-transform: scale(0.95)
+                        -webkit-transform: scale(0.95)

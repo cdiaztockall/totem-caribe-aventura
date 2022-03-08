@@ -1,0 +1,28 @@
+html, body
+    margin: 0px
+    height: 100%
+    display: flex
+    flex: 1
+    font-family: PoppinsRegular
+
+@font-face 
+    font-family: 'PoppinsBold'
+    src: url('./assets/fonts/Poppins/Poppins-Bold.ttf')
+@font-face 
+    font-family: 'PoppinsRegular'
+    src: url('./assets/fonts/Poppins/Poppins-Regular.ttf')
+
+*
+    transition: all 200ms
+
+.hidden
+    position: absolute
+    top: -10000rem
+    left: -10000rem
+    transform: scale(0)
+    -moz-transform: scale(0)
+
+.touched
+    transform: scale(0.95)
+    -moz-transform: scale(0.95)
+    -webkit-transform: scale(0.95)
