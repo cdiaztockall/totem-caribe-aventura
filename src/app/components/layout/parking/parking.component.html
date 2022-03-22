@@ -1,0 +1,41 @@
+<div class="container-bg">
+
+    <div class="container-content flex flex-direction-column gap-4rem">
+
+        <h2 class="title-content" >Resumen de día</h2>
+
+        <div class="flex flex-direction-column gap-2rem">
+            <span class="subtitle-content">
+                Ingresa tu placa
+            </span>
+            <app-input-placa></app-input-placa>
+        </div>
+
+        <div class="flex flex-direction-column gap-2rem">
+            <span class="subtitle-content">
+                Día y hora de llegada
+            </span>
+            
+            <div class="container-items">
+
+                <div *ngFor="let option of options" class="container-item">
+
+                    <img [src]="option.image" alt="" class="image-item">
+
+                    <span class="name-item"> {{ option.value }} </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <button (click)="openCheckOut()" class="btn-primary touched" >
+            Obtener Ticket
+        </button>
+
+    </div>
+
+    <app-checkout-parking></app-checkout-parking>
+
+</div>

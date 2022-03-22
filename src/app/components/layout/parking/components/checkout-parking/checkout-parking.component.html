@@ -1,0 +1,19 @@
+<div [ngClass]="{'open': openCheckOut}" class="container-checkout">
+
+    <div class="header">
+        <span class="title-header">Recibido</span>
+        <img (click)="closeWindow()" src="/assets/imgs/close.svg" alt="" class="close-window">
+    </div>
+
+    <div class="footer">
+
+        <div class="container-amounts">
+            <span class="lema">Total</span>
+            <span class="amount">$12.850</span>
+        </div>
+
+        <button class="btn-primary" >Pagar</button>
+
+    </div>
+
+</div>

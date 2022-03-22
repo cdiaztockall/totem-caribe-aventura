@@ -9,10 +9,11 @@ import { FormControl } from '@angular/forms';
 export class LoginLokerComponent implements OnInit {
 
   keyBoard: any = [
-    ['1','2','3','4','5','6','7','8','9','0', 'BORRAR'],
+    ['.','_','-','*',',','@','$','&', 'BORRAR'],
+    ['1','2','3','4','5','6','7','8','9','0'],
     ['Q','W','E','R','T','Y','U','I','O','P'],
     ['A','S','D','F','G','H','J','K','L','Ñ'],
-    ['Z','X','C','V','B','N','M'],
+    ['Z','X','C','V','B','N','M']
   ]
 
   cc = new FormControl('')

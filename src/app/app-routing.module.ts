@@ -16,6 +16,10 @@ const routes: Routes = [
   {
     path: 'menu/locker',
     loadChildren: () => import('./modules/layout/locker/locker.module').then(m => m.LockerModule)
+  },
+  {
+    path: 'menu/parking',
+    loadChildren: () => import('./modules/layout/parking/parking.module').then(m => m.ParkingModule)
   }
 ];
 

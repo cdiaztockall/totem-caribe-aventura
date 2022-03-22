@@ -1,0 +1,29 @@
+.flex
+    display: flex
+
+.align-items-center
+    align-items: center
+
+.flex-direction-column
+    flex-direction: column
+
+.justify-content-start
+    justify-content: flex-start
+
+.justify-content-end
+    justify-content: flex-end
+
+.justify-content-between
+    justify-content: space-between
+
+.justify-content-around
+    justify-content: space-around
+
+.justify-content-evenly
+    justify-content: space-evenly
+
+$gaps: 1rem, 2rem, 3rem, 4rem, 5rem, 6rem, 7rem, 8rem, 9rem, 10rem
+
+@each $gap in $gaps
+  .gap-#{$gap}
+      gap: $gap

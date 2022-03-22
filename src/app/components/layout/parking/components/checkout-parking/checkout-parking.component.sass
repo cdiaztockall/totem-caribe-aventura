@@ -1,0 +1,40 @@
+.container-checkout
+    position: absolute
+    right: -55rem
+    top: 0rem
+    bottom: 0rem
+    width: 70%
+    background-color: #ffffff70
+    backdrop-filter: blur(17px)
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    padding: 2rem 4rem
+    box-sizing: border-box
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16)
+    &.open
+        right: 0rem
+    .header
+        display: flex
+        align-items: center
+        justify-content: space-between
+        .title-header
+            font-size: 4rem
+            font-family: 'PoppinsBold'
+        .close-window
+            width: 4rem
+            padding: 1rem
+            background-color: #eb148d
+            border-radius: 4rem
+    
+    .footer
+        display: flex
+        flex-direction: column
+        gap: 2rem
+        .container-amounts
+            display: flex
+            justify-content: space-between
+            font-size: 2.5rem
+            padding: 0rem 2rem
+            font-family: 'PoppinsBold'
+        

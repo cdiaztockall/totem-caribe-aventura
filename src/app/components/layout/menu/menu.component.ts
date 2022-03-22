@@ -17,13 +17,13 @@ export class MenuComponent implements OnInit {
     },
     {
       name: 'Parqueadero',
-      route: '',
+      route: 'menu/parking',
       image: '/assets/imgs/item2.svg',
       color: 'linear-gradient(0deg, #f28684, #f2b6b5)'
     },
     {
       name: 'Comidas',
-      route: '',
+      route: 'https://as-ecommerce-pru.azurewebsites.net/#/empresa/CARIBEAVENTURARESTAURANTES',
       image: '/assets/imgs/item3.svg',
       color: 'linear-gradient(0deg, #45d79e, #9fe2d3)'
     },
@@ -42,8 +42,12 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goTo(route: string): void {
-    this._router.navigate([route])
+  goTo(item: any): void {
+    if(item.name == 'Comidas'){
+      window.location.assign(item.route)
+    } else {
+      this._router.navigate([item.route])
+    }
   }
 
 }

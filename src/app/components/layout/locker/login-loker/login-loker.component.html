@@ -9,7 +9,7 @@
                     <img src="/assets/imgs/cc.svg" alt="" class="icon-form">
                 </div>
                 <div (click)="selectInput(1)" class="container-input-form">
-                    <input [disabled]="true" id="cc" [formControl]="cc" class="input-form" type="tel" name="" autocomplete="off" >
+                    <input [disabled]="true" id="cc" [formControl]="cc" class="input-form" type="tel" name="" autocomplete="off" autocomplete="off" placeholder="Número de identificación" >
                 </div>
             </div>
             <div class="container-item-form">
@@ -17,12 +17,12 @@
                     <img src="/assets/imgs/contrasena.svg" alt="" class="icon-form">
                 </div>
                 <div (click)="selectInput(2)" class="container-input-form">
-                    <input [disabled]="true" [contentEditable]="true" id="password" [formControl]="password" class="input-form" type="text" name="" autocomplete="off" >
+                    <input [disabled]="true" [contentEditable]="true" id="password" [formControl]="password" class="input-form" type="text" name="" autocomplete="off" placeholder="Contraseña" >
                 </div>
             </div>
         </div>
     
-        <button class="btn-primay touched" >Siguiente</button>
+        <a href="https://as-lockers-pru.azurewebsites.net/" class="btn-primay touched" >Siguiente</a>
 
         <div class="container-keyboard">
             <div *ngFor="let btns of keyBoard" class="row-keyboard">

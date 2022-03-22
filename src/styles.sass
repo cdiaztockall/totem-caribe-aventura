@@ -1,9 +1,4 @@
-html, body
-    margin: 0px
-    height: 100%
-    display: flex
-    flex: 1
-    font-family: PoppinsRegular
+@import "layout"
 
 @font-face 
     font-family: 'PoppinsBold'
@@ -11,6 +6,14 @@ html, body
 @font-face 
     font-family: 'PoppinsRegular'
     src: url('./assets/fonts/Poppins/Poppins-Regular.ttf')
+    
+html, body
+    margin: 0px
+    height: 100%
+    display: flex
+    flex: 1
+    font-family: PoppinsRegular
+
 
 *
     transition: all 200ms
@@ -23,6 +26,17 @@ html, body
     -moz-transform: scale(0)
 
 .touched
-    transform: scale(0.95)
-    -moz-transform: scale(0.95)
-    -webkit-transform: scale(0.95)
+    &:active
+        transform: scale(0.95)
+        -moz-transform: scale(0.95)
+        -webkit-transform: scale(0.95)
+
+.btn-primary
+    background-color: #eb148d
+    outline: none
+    border: none
+    padding: 2rem 0rem
+    color: white
+    font-size: 3rem
+    border-radius: 1rem
+    box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%)
