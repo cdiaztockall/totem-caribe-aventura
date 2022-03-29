@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginService } from 'src/app/services/login/login.service';
+import { SharedService } from 'src/app/services/shared/shared.service';
 
 @Component({
   selector: 'app-login-loker',
@@ -16,14 +19,19 @@ export class LoginLokerComponent implements OnInit {
     ['Z','X','C','V','B','N','M']
   ]
 
-  cc = new FormControl('')
-  password = new FormControl('')
+  cc = new FormControl('10678384880')
+  password = new FormControl('FNRJZ')
 
   inputSelected: number = 0;
 
-  constructor() { }
+  constructor(
+    private _sharedService: SharedService,
+    private _loginService: LoginService,
+    private _router: Router,
+  ) { }
 
   ngOnInit(): void {
+    this.generateToken()
   }
 
   writeKey(key: string): void {
@@ -42,6 +50,44 @@ export class LoginLokerComponent implements OnInit {
 
   selectInput(input: number): void {
     this.inputSelected = input
+  }
+
+  generateToken(): void {
+    this._sharedService.showLoader(true)
+    this._loginService.generateToken().subscribe(
+      data => {
+        this._sharedService.showLoader(false)
+      },
+      error => {
+        this._sharedService.showLoader(false)
+        // this._sharedService.showNotifyError('No se pudo generar el token.')
+        console.log(error)
+      }
+    )
+  }
+
+  login(): void {
+    let data = {
+      cc: this.cc.value,
+      code: this.password.value
+    }
+    this._sharedService.showLoader(true)
+    this._loginService.login(data).subscribe(
+      (data: any) => {
+        this._sharedService.showLoader(false)
+        
+        if(data.status) {
+          localStorage.setItem('user', JSON.stringify(data.user))
+          this._router.navigate(['/menu/locker/open'])
+        }
+
+        if(!data.status) {
+          console.log(data.message)
+          // this._sharedService.showNotifyWarning(data.message)
+        }
+
+      }
+    )
   }
 
 }

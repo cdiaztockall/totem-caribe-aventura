@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  endPointHttp: 'http://20.44.111.223:80/api',
+  endPointSocket: 'ws://20.65.46.44:3004/connection/',
 };
 
 /*

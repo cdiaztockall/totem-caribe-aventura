@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LockerComponent } from 'src/app/components/layout/locker/locker.component';
 import { LoginLokerComponent } from 'src/app/components/layout/locker/login-loker/login-loker.component';
+import { OpenLockerComponent } from 'src/app/components/layout/locker/open-locker/open-locker.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginLokerComponent
+  },
+  {
+    path: 'open',
+    component: OpenLockerComponent
   },
 ];
 

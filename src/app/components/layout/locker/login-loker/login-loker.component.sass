@@ -16,11 +16,12 @@
         overflow-y: auto
         align-items: center
         height: 100%
-        justify-content: space-around
+        gap: 2rem
+        padding: 2rem 0rem
         .title-menu
             font-family: 'PoppinsBold'
             text-align: center
-            font-size: 3.2rem
+            font-size: 2.2rem
         .btn-primay
             padding: 0.5rem 1.5rem
             border: none
@@ -31,7 +32,7 @@
             font-family: 'PoppinsRegular'
             box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%)
             cursor: pointer
-            font-size: 3.2rem
+            font-size: 1.5rem
             text-decoration: none
         .cotainer-form
             display: flex
@@ -45,15 +46,15 @@
                     display: flex
                     align-items: center
                     justify-content: center
-                    width: 9rem
-                    height: 9rem
+                    width: 6rem
+                    height: 6rem
                     background-color: white
                     border-radius: 1rem
                     padding: 0rem 0rem
                     .icon-form
-                        width: 4.5rem
+                        width: 3rem
                 .container-input-form
-                    height: 9rem
+                    height: 6rem
                     background-color: white
                     border-radius: 1rem
                     min-width: 31rem
@@ -67,23 +68,29 @@
                         outline: none
                         padding: 0rem 1rem
                         text-align: center
-                        font-size: 2.5rem
+                        font-size: 1.8rem
                         font-family: 'PoppinsBold'
+                        &::placeholder
+                            font-size: 1.3rem
+                        &::-webkit-input-placeholder
+                            font-size: 1.3rem
+                        &::-ms-input-placeholder
+                            font-size: 1.3rem
         .container-keyboard
             background-color: white
-            padding: 2rem 2rem
+            padding: 1rem 1rem
             border-radius: 1rem
             box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%)
             display: flex
             flex-direction: column
-            gap: 1.1rem
+            gap: 0.5rem
             .row-keyboard
                 display: flex
                 justify-content: center
-                gap: 1.1rem
+                gap: 1.2rem
                 .btn-keyboard
-                    width: 3.5rem
-                    height: 3.7rem
+                    width: 2.8rem
+                    height: 3rem
                     border-radius: 14px
                     box-shadow: 0 3px 6px 0 rgb(0 0 0 / 16%)
                     background-color: #fff
@@ -93,7 +100,7 @@
                     text-align: center
                     cursor: pointer
                     color: #ee158f
-                    font-size: 1.7rem
+                    font-size: 1.3rem
                     &.width-auto
                         width: auto
                     &:active

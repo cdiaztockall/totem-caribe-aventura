@@ -9,12 +9,12 @@ import { Router } from '@angular/router';
 export class MenuComponent implements OnInit {
 
   itemsMenu: {name: string, route: string, image: string, color: string}[] = [
-    {
-      name: 'Recuerdos',
-      route: '',
-      image: '/assets/imgs/item1.png',
-      color: 'linear-gradient(0deg, #7c61ec, #a394f3)'
-    },
+    // {
+    //   name: 'Recuerdos',
+    //   route: '',
+    //   image: '/assets/imgs/item1.png',
+    //   color: 'linear-gradient(0deg, #7c61ec, #a394f3)'
+    // },
     {
       name: 'Parqueadero',
       route: 'menu/parking',
