@@ -19,8 +19,10 @@ export class LoginLokerComponent implements OnInit {
     ['Z','X','C','V','B','N','M']
   ]
 
-  cc = new FormControl('10678384880')
-  password = new FormControl('FNRJZ')
+  // cc = new FormControl({value: '10678384880', disabled: true})
+  // password = new FormControl({value: 'FNRJZ', disabled: true})
+  cc = new FormControl({value: '', disabled: true})
+  password = new FormControl({value: '', disabled: true})
 
   inputSelected: number = 0;
 
@@ -39,7 +41,7 @@ export class LoginLokerComponent implements OnInit {
       if(key == 'BORRAR') this.cc.setValue(this.cc.value.substr(0, this.cc.value.length - 1))
       else {
         let rNumber = /^[0-9]$/;
-        if(rNumber.test(key) && this.cc.value.length < 10) this.cc.setValue(this.cc.value.concat(key))
+        if(rNumber.test(key) && this.cc.value.length < 11) this.cc.setValue(this.cc.value.concat(key))
       }
     }
     if(this.inputSelected == 2) {
@@ -82,6 +84,7 @@ export class LoginLokerComponent implements OnInit {
         }
 
         if(!data.status) {
+          this._sharedService.showNotifyWarning(data.message)
           console.log(data.message)
           // this._sharedService.showNotifyWarning(data.message)
         }

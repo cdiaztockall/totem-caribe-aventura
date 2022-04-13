@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { NotifierModule } from 'angular-notifier';
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { MenuComponent } from 'src/app/components/layout/menu/menu.component';
@@ -25,7 +27,21 @@ import { LoaderComponent } from './components/shared/loader/loader.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NotifierModule.withConfig({
+      position: {
+        horizontal: {
+          position: 'middle'
+        },
+        vertical: {
+          position: 'top'
+        }
+      },
+      behaviour: {
+        showDismissButton: false,
+        autoHide: 3000
+      }
+    })
 
     // LayoutRoutingModule
   ],

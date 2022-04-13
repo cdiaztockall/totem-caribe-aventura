@@ -14,12 +14,12 @@ export class LoginService {
 
   endPoint: string = environment.endPointHttp
 
-  objectOpenLocker: {} = {//abrir locker
+  objectOpenLocker: any = {//abrir locker
     "type": 7,
     "data": {
-      "user_id": `andres.carrillo::${(Math.random() * 1000000).toFixed()}`,
-      "locker_name": JSON.parse(localStorage.getItem('user')!.toString()).locker,
-      "box_name": JSON.parse(localStorage.getItem('user')!.toString()).box,
+      "user_id": '',
+      "locker_name": '',
+      "box_name": '',
       "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJAYXRtIjp0cnVlLCJpc3MiOiJhbmRyZXMuY2FycmlsbG8iLCJleHAiOjE2NDk0ODA0MDAsImlhdCI6MTYxODk4MTIwMH0.UwHaA-M4iM3pGZ83R3A7IbrCu3oN3UUQRYMd5jAn9xk"
     }
 
@@ -118,6 +118,10 @@ export class LoginService {
 
   openLocker(): Observable<any> {
     
+    this.objectOpenLocker.data.user_id = `andres.carrillo::${(Math.random() * 1000000).toFixed()}`
+    this.objectOpenLocker.data.locker_name = JSON.parse(localStorage.getItem('user')!.toString()).locker
+    this.objectOpenLocker.data.box_name = JSON.parse(localStorage.getItem('user')!.toString()).box
+
     this.myWebSocket.next(this.objectOpenLocker);
     
     return new Observable(observer => {

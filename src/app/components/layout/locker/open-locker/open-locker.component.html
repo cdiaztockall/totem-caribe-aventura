@@ -4,8 +4,11 @@
         <span class="title-menu">Para ingresar a los Lockers <br> autentícate</span>
     
         <div class="card">
+
+            <span class="user-name"> Hola {{ user.name }} </span>
+
             <div class="container-header" >
-                <span class="title-header"> {{ user.locker }} </span>
+                <span class="title-header"> {{ user.locker }} #{{ user.box }} </span>
             </div>
 
             <img src="/assets/imgs/lockers.svg" alt="" class="lockers">

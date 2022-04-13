@@ -1,10 +1,10 @@
 <div class="container-bg">
 
-    <div class="container-content flex flex-direction-column gap-4rem">
+    <div class="container-content flex flex-direction-column gap-2rem">
 
         <h2 class="title-content" >Resumen de día</h2>
 
-        <div class="flex flex-direction-column gap-2rem">
+        <div class="flex flex-direction-column gap-1rem">
             <span class="subtitle-content">
                 Ingresa tu placa
             </span>
@@ -18,13 +18,13 @@
             
             <div class="container-items">
 
-                <div *ngFor="let option of options" class="container-item">
+                <button *ngFor="let option of options" class="container-item touched">
 
                     <img [src]="option.image" alt="" class="image-item">
 
                     <span class="name-item"> {{ option.value }} </span>
 
-                </div>
+                </button>
 
             </div>
 
