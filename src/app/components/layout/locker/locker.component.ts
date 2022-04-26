@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Notify } from 'src/app/models/notify.model';
+
+// Services
+import { NotifyService } from 'src/app/services/notify/notify.service';
 
 @Component({
   selector: 'app-locker',
@@ -31,14 +35,23 @@ export class LockerComponent implements OnInit {
   ]
 
   constructor(
-    private _router: Router
+    private _router: Router,
+    private _notifyService: NotifyService
   ) { }
 
   ngOnInit(): void {
   }
 
   goTo(route: string): void {
-    this._router.navigate([route])
+    if(route == '') {
+      this._notifyService.emmiterShowNotify( new Notify(
+        'Prueba',
+        'Funcionalidad en desarrollo.',
+        true
+      ))
+    } else {
+      this._router.navigate([route])
+    }
   }
 
 }

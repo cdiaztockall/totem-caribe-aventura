@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Notify } from 'src/app/models/notify.model';
 import { LoginService } from 'src/app/services/login/login.service';
+import { NotifyService } from 'src/app/services/notify/notify.service';
 import { SharedService } from 'src/app/services/shared/shared.service';
 
 @Component({
@@ -21,8 +23,8 @@ export class LoginLokerComponent implements OnInit {
 
   // cc = new FormControl({value: '10678384880', disabled: true})
   // password = new FormControl({value: 'FNRJZ', disabled: true})
-  cc = new FormControl({value: '', disabled: true})
-  password = new FormControl({value: '', disabled: true})
+  cc = new FormControl({value: '80154575', disabled: true})
+  password = new FormControl({value: '80154575', disabled: true})
 
   inputSelected: number = 0;
 
@@ -30,6 +32,7 @@ export class LoginLokerComponent implements OnInit {
     private _sharedService: SharedService,
     private _loginService: LoginService,
     private _router: Router,
+    private _notifyService: NotifyService
   ) { }
 
   ngOnInit(): void {
@@ -84,7 +87,12 @@ export class LoginLokerComponent implements OnInit {
         }
 
         if(!data.status) {
-          this._sharedService.showNotifyWarning(data.message)
+          // this._sharedService.showNotifyWarning(data.message)
+          this._notifyService.emmiterShowNotify(new Notify(
+            'Upps',
+            data.message,
+            true
+          ))
           console.log(data.message)
           // this._sharedService.showNotifyWarning(data.message)
         }

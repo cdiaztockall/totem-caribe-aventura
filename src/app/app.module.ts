@@ -13,6 +13,7 @@ import { SplashComponent } from 'src/app/components/layout/splash/splash.compone
 
 import { AppComponent } from './app.component';
 import { LoaderComponent } from './components/shared/loader/loader.component';
+import { NotifyComponent } from './components/shared/notify/notify.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LoaderComponent } from './components/shared/loader/loader.component';
 
     MenuComponent,
     SplashComponent,
-    LoaderComponent
+    LoaderComponent,
+    NotifyComponent
   ],
   imports: [
     CommonModule,

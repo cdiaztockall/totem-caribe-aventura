@@ -1,0 +1,13 @@
+<section *ngIf="notify.active" class="container-notify">
+
+    <div class="card-notify">
+
+        <span class="title-notify"> {{ notify.title }} </span>
+
+        <p class="description-notify"> {{ notify.message }} </p>
+
+        <button (click)="close()" class="btn-notify touched" >Cerrar</button>
+
+    </div>
+
+</section>
