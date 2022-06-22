@@ -91,8 +91,10 @@ export class LoginService {
                   apellido: firstUser['apellido'],
                   email: firstUser['email'],
                   codigo: firstUser['codigo'],
-                  locker: firstUser['reservaCasilla']['casilla']['casillero']['nombre'],
-                  box: firstUser['reservaCasilla']['casilla']['id']
+                  locker: firstUser['boleta']['reserva']['casillas'][0]['casilla']['casillero']['nombre'],
+                  box: firstUser['boleta']['reserva']['casillas'][0]['casilla']['id'],
+                  // locker: firstUser['reservaCasilla']['casilla']['casillero']['nombre'],
+                  // box: firstUser['reservaCasilla']['casilla']['id']
                 }
               }
             }
@@ -104,6 +106,7 @@ export class LoginService {
               status: false,
               message: 'Error interno #65463547'
             }
+            observer.next(response)
           }
 
         },
@@ -122,12 +125,15 @@ export class LoginService {
     this.objectOpenLocker.data.locker_name = JSON.parse(localStorage.getItem('user')!.toString()).locker
     this.objectOpenLocker.data.box_name = JSON.parse(localStorage.getItem('user')!.toString()).box
 
-    this.myWebSocket.next(this.objectOpenLocker);
+    this.myWebSocket.next(this.objectOpenLocker)
     
+    this.myWebSocket
+
     return new Observable(observer => {
       this.myWebSocket.asObservable().subscribe(
         (dataFromServer: any) => {
           observer.next(dataFromServer)
+          this.myWebSocket.complete()
         },
         (error: any) => observer.error(error)
       );

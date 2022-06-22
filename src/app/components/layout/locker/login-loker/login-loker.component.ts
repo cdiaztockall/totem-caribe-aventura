@@ -23,8 +23,8 @@ export class LoginLokerComponent implements OnInit {
 
   // cc = new FormControl({value: '10678384880', disabled: true})
   // password = new FormControl({value: 'FNRJZ', disabled: true})
-  cc = new FormControl({value: '80154575', disabled: true})
-  password = new FormControl({value: '80154575', disabled: true})
+  cc = new FormControl({value: '79603322', disabled: true})
+  password = new FormControl({value: 'C789S', disabled: true})
 
   inputSelected: number = 0;
 
@@ -80,7 +80,7 @@ export class LoginLokerComponent implements OnInit {
     this._loginService.login(data).subscribe(
       (data: any) => {
         this._sharedService.showLoader(false)
-        
+        console.log(data)
         if(data.status) {
           localStorage.setItem('user', JSON.stringify(data.user))
           this._router.navigate(['/menu/locker/open'])
