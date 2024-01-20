@@ -16,6 +16,12 @@ export class MenuComponent implements OnInit {
     //   color: 'linear-gradient(0deg, #7c61ec, #a394f3)'
     // },
     {
+      name: 'Lockers',
+      route: 'menu/locker',
+      image: '/assets/imgs/item4.svg',
+      color: 'linear-gradient(0deg, #53b5e5, #85cff3)'
+    },
+    {
       name: 'Parqueadero',
       route: 'menu/parking',
       image: '/assets/imgs/item2.svg',
@@ -26,12 +32,6 @@ export class MenuComponent implements OnInit {
       route: 'https://as-ecommerce-pru.azurewebsites.net/#/empresa/CARIBEAVENTURARESTAURANTES',
       image: '/assets/imgs/item3.svg',
       color: 'linear-gradient(0deg, #45d79e, #9fe2d3)'
-    },
-    {
-      name: 'Lockers',
-      route: 'menu/locker',
-      image: '/assets/imgs/item4.svg',
-      color: 'linear-gradient(0deg, #53b5e5, #85cff3)'
     },
   ]
 

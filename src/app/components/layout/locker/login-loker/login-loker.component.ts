@@ -21,10 +21,10 @@ export class LoginLokerComponent implements OnInit {
     ['Z','X','C','V','B','N','M']
   ]
 
-  // cc = new FormControl({value: '10678384880', disabled: true})
-  // password = new FormControl({value: 'FNRJZ', disabled: true})
-  cc = new FormControl({value: '79603322', disabled: true})
-  password = new FormControl({value: 'C789S', disabled: true})
+  // cc = new FormControl({value: '80154575', disabled: true})
+  // password = new FormControl({value: 'EUOFO', disabled: true})
+  cc = new FormControl({value: '', disabled: true})
+  password = new FormControl({value: '', disabled: true})
 
   inputSelected: number = 0;
 
@@ -36,7 +36,7 @@ export class LoginLokerComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.generateToken()
+    // this.generateToken()
   }
 
   writeKey(key: string): void {
@@ -97,6 +97,15 @@ export class LoginLokerComponent implements OnInit {
           // this._sharedService.showNotifyWarning(data.message)
         }
 
+      },
+      (error: any) => {
+        this._notifyService.emmiterShowNotify(new Notify(
+          'Upps',
+          error,
+          true
+        ))
+        this._sharedService.showLoader(false)
+        console.log(error)
       }
     )
   }

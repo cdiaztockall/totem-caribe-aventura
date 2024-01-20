@@ -69,4 +69,48 @@ export class OpenLockerComponent implements OnInit {
     )
   }
 
+  open(): void {
+    let user = JSON.parse(localStorage.getItem('user') ?? '');
+
+    let data = {
+      codigo: user.codigo,
+      numeroIdentificacion: user.identification
+    }
+
+    this._sharedService.showLoader(true)
+    this._loginService.openLockerHttp(data).subscribe(
+      (data: any) => {
+        this._sharedService.showLoader(false)
+
+
+        if(data.status) {
+          this._notifyService.emmiterShowNotify(new Notify(
+            'Upps',
+            data.message,
+            true
+          ))
+          console.log(data.message)
+        }
+        if(!data.status) {
+          this._notifyService.emmiterShowNotify(new Notify(
+            'Upps',
+            data.message,
+            true
+          ))
+          console.log(data.message)
+        }
+
+      },
+      (error: any) => {
+        this._notifyService.emmiterShowNotify(new Notify(
+          'Upps',
+          error,
+          true
+        ))
+        this._sharedService.showLoader(false)
+        console.log(error)
+      }
+    )
+  }
+
 }

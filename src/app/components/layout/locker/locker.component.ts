@@ -18,6 +18,11 @@ export class LockerComponent implements OnInit {
     route: string
   }[] = [
     {
+      name: 'Contraseña',
+      image: '/assets/imgs/contrasena.svg',
+      route: 'menu/locker/login'
+    },
+    {
       name: 'Manilla',
       image: '/assets/imgs/manilla.svg',
       route: ''
@@ -26,11 +31,6 @@ export class LockerComponent implements OnInit {
       name: 'Biometria',
       image: '/assets/imgs/biometria.svg',
       route: ''
-    },
-    {
-      name: 'Contraseña',
-      image: '/assets/imgs/contrasena.svg',
-      route: 'menu/locker/login'
     },
   ]
 
