@@ -65,8 +65,11 @@ export class LoginService {
     return new Observable(observer => {
 
       let date = moment().format('DD-MM-YYYY');
+      
+      let params = `?filter=boletas.visitante.numeroIdentificacion:'${data_user.cc}'&sort=fecha,desc&size=50`
 
-      let url = `${this.endPoint}/caribe/boleteria/buscarVisitante?filter=numeroIdentificacion:'${data_user.cc}' and codigo:'${data_user.code}' and boleta.reserva.fecha:'${date}'`
+      let url = `${this.endPoint}/boleteria/buscarVisitante?filter=numeroIdentificacion:'${data_user.cc}' and codigo:'${data_user.code}' and boleta.reserva.fecha:'${date}'`
+      // let url = `${this.endPoint}/boleteria/buscarVisitante?filter=numeroIdentificacion:'${data_user.cc}' and codigo:'${data_user.code}' and boleta.reserva.fecha:'${date}'`
       // let url = `${this.endPoint}/boleteria/buscarVisitante?filter=numeroIdentificacion:'${data.cc}' and codigo:'${data.code}' and boleta.reserva.fecha:'${date}'`
       this._http.get(url, { headers }).subscribe(
         (data: any) => {
@@ -74,15 +77,15 @@ export class LoginService {
 
           try {
 
-            if(data.data.respuesta.length == 0) {
+            if(data.length == 0) {
               response = {
                 status: false,
                 message: 'Usuario no encontrado',
               }
             }
 
-            if(data.data.respuesta.length > 0) {
-              let firstUser = data.data.respuesta[0]
+            if(data.length > 0) {
+              let firstUser = data[0]
               response = {
                 status: true,
                 message: 'Usuario encontrado',
@@ -92,9 +95,10 @@ export class LoginService {
                   apellido: firstUser['apellido'],
                   email: firstUser['email'],
                   codigo: firstUser['codigo'],
-                  identification: data_user.cc,
-                  locker: firstUser['boleta']['reserva']['casillas'][0]['casilla']['casillero']['nombre'],
-                  box: firstUser['boleta']['reserva']['casillas'][0]['casilla']['id'],
+                  identification: firstUser['numeroIdentificacion'],
+                  locker: firstUser['reservaCasilla']['casilla']['casillero']['nombre'],
+                  box: firstUser['reservaCasilla']['casilla']['id'],
+                  clave: firstUser['reservaCasilla']['casilla']['clave']
                   // locker: firstUser['reservaCasilla']['casilla']['casillero']['nombre'],
                   // box: firstUser['reservaCasilla']['casilla']['id']
                 }
@@ -104,6 +108,8 @@ export class LoginService {
             observer.next(response)
             
           } catch (error) {
+            console.log(error);
+            
             response = {
               status: false,
               message: 'Error interno #65463547'
@@ -127,7 +133,7 @@ export class LoginService {
     })
     return new Observable(observer => {
 
-      let url = `${this.endPoint}/caribe/locker/visitanteabrir`
+      let url = `${this.endPoint}/lockers/visitanteCodigoAbrirCasillero`
       // let url = `${this.endPoint}/boleteria/buscarVisitante?filter=numeroIdentificacion:'${data.cc}' and codigo:'${data.code}' and boleta.reserva.fecha:'${date}'`
       this._http.post(url, data_user, { headers }).subscribe(
         (data: any) => {
@@ -146,10 +152,10 @@ export class LoginService {
 
             observer.next(response)
             
-          } catch (error) {
+          } catch (error: any) {
             response = {
               status: false,
-              message: 'Error interno #654sdf63547'
+              message: error.message
             }
             observer.next(response)
           }
@@ -157,7 +163,7 @@ export class LoginService {
         },
         error => {
           try {
-            observer.error(error.error.data.respuesta.message)
+            observer.error(error.error.message)
           } catch (error) {
             observer.error('Error externo #958659') 
           }

@@ -21,18 +21,18 @@ export class MenuComponent implements OnInit {
       image: '/assets/imgs/item4.svg',
       color: 'linear-gradient(0deg, #53b5e5, #85cff3)'
     },
-    {
-      name: 'Parqueadero',
-      route: 'menu/parking',
-      image: '/assets/imgs/item2.svg',
-      color: 'linear-gradient(0deg, #f28684, #f2b6b5)'
-    },
-    {
-      name: 'Comidas',
-      route: 'https://as-ecommerce-pru.azurewebsites.net/#/empresa/CARIBEAVENTURARESTAURANTES',
-      image: '/assets/imgs/item3.svg',
-      color: 'linear-gradient(0deg, #45d79e, #9fe2d3)'
-    },
+    // {
+    //   name: 'Parqueadero',
+    //   route: 'menu/parking',
+    //   image: '/assets/imgs/item2.svg',
+    //   color: 'linear-gradient(0deg, #f28684, #f2b6b5)'
+    // },
+    // {
+    //   name: 'Comidas',
+    //   route: 'https://as-ecommerce-pru.azurewebsites.net/#/empresa/CARIBEAVENTURARESTAURANTES',
+    //   image: '/assets/imgs/item3.svg',
+    //   color: 'linear-gradient(0deg, #45d79e, #9fe2d3)'
+    // },
   ]
 
   constructor(

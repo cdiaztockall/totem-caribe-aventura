@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   // endPointHttp: 'https://pcabackend.infomediaservice.online:9000/api',
-  endPointHttp: 'https://as-ws-zona-transaccionales.azurewebsites.net/api',
+  // endPointHttp: 'https://as-ws-zona-transaccionales.azurewebsites.net/api', // Viejo, rutas quemadas
+  endPointHttp: 'https://as-ws-zona-transaccionales.azurewebsites.net/infomediadev/api',
   endPointSocket: 'ws://20.65.46.44:3004/connection/',
 };
 

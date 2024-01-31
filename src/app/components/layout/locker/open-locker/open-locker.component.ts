@@ -74,7 +74,8 @@ export class OpenLockerComponent implements OnInit {
 
     let data = {
       codigo: user.codigo,
-      numeroIdentificacion: user.identification
+      numeroIdentificacion: user.identification,
+      clave: user.clave
     }
 
     this._sharedService.showLoader(true)

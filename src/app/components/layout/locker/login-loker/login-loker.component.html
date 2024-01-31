@@ -8,17 +8,17 @@
                 <div class="container-icon-form">
                     <img src="/assets/imgs/cc.svg" alt="" class="icon-form">
                 </div>
-                <div (click)="selectInput(1)" [ngClass]="{'focus': inputSelected == 1}" class="container-input-form">
+                <button (click)="selectInput(1)" [ngClass]="{'focus': inputSelected == 1}" class="container-input-form">
                     <input id="cc" [formControl]="cc" class="input-form" type="tel" name="" autocomplete="off" autocomplete="off" placeholder="Número de identificación" >
-                </div>
+                </button>
             </div>
             <div class="container-item-form">
                 <div class="container-icon-form">
                     <img src="/assets/imgs/contrasena.svg" alt="" class="icon-form">
                 </div>
-                <div (click)="selectInput(2)" [ngClass]="{'focus': inputSelected == 2}" class="container-input-form">
+                <button (click)="selectInput(2)" [ngClass]="{'focus': inputSelected == 2}" class="container-input-form">
                     <input [contentEditable]="true" id="password" [formControl]="password" class="input-form" type="text" name="" autocomplete="off" placeholder="Contraseña" >
-                </div>
+                </button>
             </div>
         </div>
     

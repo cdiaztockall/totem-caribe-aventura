@@ -22,16 +22,16 @@ export class LockerComponent implements OnInit {
       image: '/assets/imgs/contrasena.svg',
       route: 'menu/locker/login'
     },
-    {
-      name: 'Manilla',
-      image: '/assets/imgs/manilla.svg',
-      route: ''
-    },
-    {
-      name: 'Biometria',
-      image: '/assets/imgs/biometria.svg',
-      route: ''
-    },
+    // {
+    //   name: 'Manilla',
+    //   image: '/assets/imgs/manilla.svg',
+    //   route: ''
+    // },
+    // {
+    //   name: 'Biometria',
+    //   image: '/assets/imgs/biometria.svg',
+    //   route: ''
+    // },
   ]
 
   constructor(

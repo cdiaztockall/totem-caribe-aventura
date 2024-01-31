@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Notify } from 'src/app/models/notify.model';
 import { LoginService } from 'src/app/services/login/login.service';
@@ -21,10 +21,10 @@ export class LoginLokerComponent implements OnInit {
     ['Z','X','C','V','B','N','M']
   ]
 
-  // cc = new FormControl({value: '80154575', disabled: true})
-  // password = new FormControl({value: 'EUOFO', disabled: true})
-  cc = new FormControl({value: '', disabled: true})
-  password = new FormControl({value: '', disabled: true})
+  // cc = new UntypedFormControl({value: '1069497501', disabled: false})
+  // password = new UntypedFormControl({value: 'UPU7N', disabled: false})
+  cc = new UntypedFormControl({value: '', disabled: false})
+  password = new UntypedFormControl({value: '', disabled: false})
 
   inputSelected: number = 0;
 
