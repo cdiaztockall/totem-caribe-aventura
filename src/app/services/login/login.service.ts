@@ -68,9 +68,8 @@ export class LoginService {
       
       let params = `?filter=boletas.visitante.numeroIdentificacion:'${data_user.cc}'&sort=fecha,desc&size=50`
 
-      let url = `${this.endPoint}/boleteria/buscarVisitante?filter=numeroIdentificacion:'${data_user.cc}' and codigo:'${data_user.code}' and boleta.reserva.fecha:'${date}'`
+      let url = `${this.endPoint}/boleteria/buscarVisitante?filter=numeroIdentificacion:'${data_user.cc}' and codigo:'${data_user.code}'&sort=fechaCreado,desc&size=50`
       // let url = `${this.endPoint}/boleteria/buscarVisitante?filter=numeroIdentificacion:'${data_user.cc}' and codigo:'${data_user.code}' and boleta.reserva.fecha:'${date}'`
-      // let url = `${this.endPoint}/boleteria/buscarVisitante?filter=numeroIdentificacion:'${data.cc}' and codigo:'${data.code}' and boleta.reserva.fecha:'${date}'`
       this._http.get(url, { headers }).subscribe(
         (data: any) => {
           let response: any = {}
@@ -86,6 +85,15 @@ export class LoginService {
 
             if(data.length > 0) {
               let firstUser = data[0]
+              let casillas = []
+              for (let index = 0; index < firstUser['boleta']['reserva']['casillas'].length; index++) {
+                const casilla = firstUser['boleta']['reserva']['casillas'][index];
+                casillas.push({
+                  id: casilla['casilla']['id'],
+                  name: casilla['casilla']['nombre'],
+                  casillero: casilla['casilla']['casillero']['nombre'],
+                })
+              }
               response = {
                 status: true,
                 message: 'Usuario encontrado',
@@ -96,9 +104,10 @@ export class LoginService {
                   email: firstUser['email'],
                   codigo: firstUser['codigo'],
                   identification: firstUser['numeroIdentificacion'],
-                  locker: firstUser['reservaCasilla']['casilla']['casillero']['nombre'],
-                  box: firstUser['reservaCasilla']['casilla']['id'],
-                  clave: firstUser['reservaCasilla']['casilla']['clave']
+                  casillas: casillas
+                  // locker: firstUser['reservaCasilla']['casilla']['casillero']['nombre'],
+                  // box: firstUser['reservaCasilla']['casilla']['id'],
+                  // clave: firstUser['reservaCasilla']['casilla']['clave']
                   // locker: firstUser['reservaCasilla']['casilla']['casillero']['nombre'],
                   // box: firstUser['reservaCasilla']['casilla']['id']
                 }
@@ -166,6 +175,53 @@ export class LoginService {
             observer.error(error.error.message)
           } catch (error) {
             observer.error('Error externo #958659') 
+          }
+        }
+      )
+
+    })
+
+  }
+
+  openLockerHttpIot(payload: any): Observable<any> {
+    let headers = new HttpHeaders({
+      'Content-Type':  'application/json',
+    })
+    return new Observable(observer => {
+
+      let url = `https://as-ws-zona-transaccionales.azurewebsites.net/api/webiot/locker/boxopen`
+      // let url = `${this.endPoint}/boleteria/buscarVisitante?filter=numeroIdentificacion:'${data.cc}' and codigo:'${data.code}' and boleta.reserva.fecha:'${date}'`
+      this._http.post(url, payload, { headers }).subscribe(
+        (data: any) => {
+          console.log(data);
+          
+          let response: any = {}
+
+          try {
+
+            response = {
+              status: true,
+              message: 'Locker abierto exitosamente.',
+            }
+            // if(data.data.respuesta.length == 0) {
+            // }
+
+            observer.next(response)
+            
+          } catch (error: any) {
+            response = {
+              status: false,
+              message: 'Ocurrio un error.'
+            }
+            observer.next(response)
+          }
+
+        },
+        error => {
+          try {
+            observer.error(error.error.message)
+          } catch (error) {
+            observer.error('Error externo #95345468659') 
           }
         }
       )

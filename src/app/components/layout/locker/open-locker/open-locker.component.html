@@ -1,19 +1,27 @@
 <section class="container-menu">
 
     <div class="container-content">
-        <span class="title-menu">Para ingresar a los Lockers <br> autentícate</span>
+        <!-- <span class="title-menu">Para ingresar a los Lockers <br> autentícate</span> -->
     
-        <div class="card">
+        <div *ngFor="let casilla of user.casillas" class="card">
 
             <span class="user-name"> Hola {{ user.name }} </span>
 
             <div class="container-header" >
-                <span class="title-header"> {{ user.locker }} #{{ user.box }} </span>
+                <span class="title-header"> {{ casilla.casillero }} #{{ casilla.id }} </span>
             </div>
 
             <img src="/assets/imgs/lockers.svg" alt="" class="lockers">
 
-            <button (click)="open()" class="btn-form" >Abrir Locker</button>
+            <!-- <div class="code-locker">
+                <span class="text_pass">Ingrese la clave fisica del locker</span>
+                <input [formControl]="casilla.input_form" type="text" name="" class="password" id="">
+            </div>
+            <div class="keyboard">
+                <button *ngFor="let key of keys" (click)="pressBtn(casilla.input_form, key)" class="btn_key" [ngClass]="{'long': key == 'Borrar'}" >{{key}}</button>
+            </div> -->
+            <!-- <button [ngClass]="{'show': password_success == casilla.input_form.value}" (click)="openIot(casilla)" class="btn-form" >Abrir Locker</button> -->
+            <button (click)="openIot(casilla)" class="btn-form show" >Abrir Locker</button>
         </div>
     
         <img src="/assets/imgs/logo-caribe.webp" alt="" class="logo-brand">
